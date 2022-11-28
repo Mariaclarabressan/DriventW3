@@ -22,3 +22,26 @@ export async function createTicket(enrollmentId: number, ticketTypeId: number, s
     },
   });
 }
+
+export async function createTicketTypeValid() {
+  return prisma.ticketType.create({
+    data: {
+      name: faker.name.findName(),
+      price: faker.datatype.number(),
+      isRemote: false,
+      includesHotel: false
+    },
+  });    
+}
+
+export async function createTicketTypeValid2() {
+  return prisma.ticketType.create({
+    data: {
+      name: "Invalid",
+      price: 1500,
+      isRemote: true,
+      includesHotel: true, 
+    }
+  });
+}
+
